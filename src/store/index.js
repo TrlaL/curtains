@@ -5,11 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    modal: {}
   },
+
+  getters: {
+    modal: state => state.modal
+  },
+
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+    SET_MODAL (state, modal) {
+      state.modal = modal
+    }
   }
 })
