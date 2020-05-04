@@ -1,25 +1,26 @@
 <template>
-  <div class="portfolio">
+  <PerfectScrollbar class="portfolio">
     <div
       class="frame"
       v-for="(image, i) in images"
       :key="i"
-      @click="openModalViewer">
+      @click="openModalViewer(image)">
       <img class="image" :src="require(`@/assets/images/${image}`)">
     </div>
-  </div>
+  </PerfectScrollbar>
 </template>
 
 <script>
 export default {
   data: () => ({
-    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']
+    images: ['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg', '7.jpg', '8.jpg', '9.jpg']
   }),
 
   methods: {
-    openModalViewer () {
+    openModalViewer (image) {
       this.$store.commit('SET_MODAL', {
-        name: 'ModalViewer'
+        name: 'ModalViewer',
+        image: image
       })
     }
   }
@@ -41,7 +42,7 @@ export default {
     width: 100%;
 
     &:hover {
-      box-shadow: 0 0 3px 3px rgba(236, 92, 9, 0.5);
+      box-shadow: 0 0 3px 1px $secondary-color;
     }
   }
 }
